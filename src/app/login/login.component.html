@@ -1,14 +1,39 @@
-<div class="row">
-    <div class="col-6">
+<div>
+    <div class="form">
+        <div>
+            <img class="loginimg"
+                src="https://png.pngtree.com/png-vector/20191003/ourmid/pngtree-user-login-or-authenticate-icon-on-gray-background-flat-icon-ve-png-image_1786166.jpg"
+                alt="">
+        </div>
+
+        <h3 style="text-align: center;">Login Here !</h3>
+
+        <form (ngSubmit)="login()" [formGroup]="loginForm" class="details">
+            <p>Account Number</p>
+            <input formControlName="acno" name="acno" style="width: 90%; border-radius: 10px; " type="text"
+                placeholder="enter your account number ">
+                <!-- Acc no Validation .. Structural Directive ngIf -->
+                <div *ngIf="this.loginForm.get('acno')?.errors&&this.loginForm.get('acno')?.touched" class="text-danger"> 
+                    Invalid account number
+                </div>
+            <p>Password</p>
+            <input formControlName="pswd" name="pswd" style="width: 90%; border-radius: 10px; " type="password"
+                placeholder="enter your password ">
+                
+                 <!-- password Validation .. Structural Directive ngIf -->
+                 <div *ngIf="this.loginForm.get('pswd')?.errors&&this.loginForm.get('pswd')?.touched" class="text-danger"> 
+                    Invalid Password
+                </div>
+                
+                <br>
+            <button type="submit"
+                style=" margin-top: 10px; margin-left: 110px; border-radius: 10px; background-color: red;">LOGIN</button><br>
+            <div style=" text-align: center; ">
+                <a href="">Forget Password?</a><br>
+                <a href="">register?</a><br>
+            </div>
+        </form>
 
     </div>
-    <div class="col-6">
-        <div class="m-5 p-3">
-          <div>
-             <label for="">Account Number</label>
-             <input type="text" placeholder="Account Number" class="form-control">
-       
-             </div>
-         </div>
-    </div>
+
 </div>
